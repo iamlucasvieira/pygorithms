@@ -17,6 +17,9 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
+dependencies = [
+    "typing-extensions>=4.14.1",
+]
 
 [project.urls]
 Homepage = "https://iamlucasvieira.github.io/pygorithms/"

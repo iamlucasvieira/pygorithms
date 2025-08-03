@@ -1,7 +1,11 @@
 """Implementation of Hash Table using Chaining for Collision Resolution."""
 
+from __future__ import annotations
+
 from dataclasses import dataclass
-from typing import Generic, Self, TypeVar
+from typing import Generic, TypeVar
+
+from typing_extensions import Self
 
 T = TypeVar("T")
 
@@ -10,7 +14,7 @@ T = TypeVar("T")
 class Node(Generic[T]):
     key: str
     value: T
-    next: Self | None
+    next: Node[T] | None
 
 
 class InvalidCapacityError(Exception):
@@ -28,7 +32,7 @@ class HashTableChaining(Generic[T]):
         table (list[Node | None]): The list of linked lists for chaining.
     """
 
-    def __init__(self, capacity: int = 10):
+    def __init__(self: Self, capacity: int = 10):
         """Initialize the hash table with a given capacity.
 
         Args:
