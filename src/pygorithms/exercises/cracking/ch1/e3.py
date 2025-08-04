@@ -8,25 +8,20 @@ Options:
 1. Find every space, split there, then join with %20. O(n)
 """
 
-from collections.abc import Iterable
 
-
-def urlify(s: Iterable) -> str:
+def urlify(s: str, true_length: int) -> str:
     """Returns an URLfied version of the string s."""
+    s_list = list(s)
 
-    for char in s:
-        return char
-    return ""
+    index = len(s)
+    for i in range(true_length - 1, -1, -1):
+        if s[i] == " ":
+            s_list[index - 1] = "0"
+            s_list[index - 2] = "2"
+            s_list[index - 3] = "%"
+            index -= 3
+        else:
+            s_list[index - 1] = s_list[i]
+            index -= 1
 
-
-def trim(s: str) -> str:
-    start_index = get_first_non_empty_index(s)
-    end_index = get_first_non_empty_index(reversed(s))
-    return s[start_index:end_index]
-
-
-def get_first_non_empty_index(s: Iterable) -> int:
-    for idx, char in enumerate(s):
-        if char != " ":
-            return idx
-    raise ValueError()
+    return "".join(s_list)

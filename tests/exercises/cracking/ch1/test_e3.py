@@ -4,13 +4,12 @@ from pygorithms.exercises.cracking.ch1.e3 import urlify
 
 
 @pytest.mark.parametrize(
-    ("s", "expected"),
+    ("s", "true_length", "expected"),
     [
-        ("Test", "Test"),
-        ("Test Test", "Test%20Test"),
-        ("Test    Test", "Test%20Test"),
-        ("  a  b  c  ", "a%20b%20c"),
+        ("Test", 4, "Test"),
+        ("Test Test  ", 9, "Test%20Test"),
+        ("Mr John Smith    ", 13, "Mr%20John%20Smith"),
     ],
 )
-def test_urlify(s, expected):
-    assert urlify(s) == expected
+def test_urlify(s, true_length, expected):
+    assert urlify(s, true_length) == expected
