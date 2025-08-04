@@ -27,3 +27,11 @@ class LinkedArray(Generic[T]):
             current_node = current_node.next
 
         current_node.next = node
+
+    def to_list(self) -> list[T]:
+        values = []
+        current_node = self.head
+        while current_node is not None:
+            values.append(current_node.value)
+            current_node = current_node.next
+        return values
