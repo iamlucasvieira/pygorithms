@@ -1,5 +1,5 @@
 from pygorithms.exercises.cracking.ch2.e1 import remove_duplicates
-from pygorithms.utils.node import LinkedArray
+from pygorithms.utils.array import LinkedArray
 
 
 def test_remove_duplicates():

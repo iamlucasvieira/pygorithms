@@ -1,6 +1,6 @@
 from typing import TypeVar
 
-from pygorithms.utils.node import LinkedArray
+from pygorithms.utils.array import LinkedArray
 
 T = TypeVar("T")
 
