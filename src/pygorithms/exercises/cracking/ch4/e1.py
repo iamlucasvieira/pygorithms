@@ -7,6 +7,7 @@
 We only care if connected so DFS is simpler to implement.
 """
 
+from collections import deque
 from typing import TypeVar
 
 from pygorithms.utils.graph import Graph
@@ -21,7 +22,7 @@ def is_connected(graph: Graph[T], from_vertex: T, to_vertex: T) -> bool:
     if from_vertex == to_vertex:
         return True
 
-    stack = [from_vertex]
+    stack = deque([from_vertex])
     visited = set()
 
     while stack:
